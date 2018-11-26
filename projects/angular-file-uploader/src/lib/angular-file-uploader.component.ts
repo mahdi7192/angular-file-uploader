@@ -56,7 +56,7 @@ export class AngularFileUploaderComponent implements OnInit, OnChanges {
       this.hideProgressBar = this.config["hideProgressBar"] || false;
       this.hideResetBtn = this.config["hideResetBtn"] || false;
       this.hideSelectBtn = this.config["hideSelectBtn"] || false;
-      this.uploadBtnText = this.config["uploadBtnText"] || "Upload";
+      this.uploadBtnText = this.config["uploadBtnText"] || "بارگزاری";
       this.maxSize = this.config["maxSize"] || 20;
       this.uploadAPI = this.config["uploadAPI"]["url"];
       this.formatsAllowed =
@@ -149,7 +149,7 @@ export class AngularFileUploaderComponent implements OnInit, OnChanges {
           this.notAllowedList.push({
             fileName: file[i].name,
             fileSize: this.convertSize(file[i].size),
-            errorMsg: "Invalid size"
+            errorMsg: "حجم فایل صحیح نیست"
           });
           continue;
         } else {
@@ -161,7 +161,7 @@ export class AngularFileUploaderComponent implements OnInit, OnChanges {
         this.notAllowedList.push({
           fileName: file[i].name,
           fileSize: this.convertSize(file[i].size),
-          errorMsg: "Invalid format"
+          errorMsg: "فرمت فایل صحیح نیست"
         });
         continue;
       }
@@ -193,7 +193,7 @@ export class AngularFileUploaderComponent implements OnInit, OnChanges {
 
     for (i = 0; i < this.selectedFiles.length; i++) {
       if (this.Caption[i] == undefined) 
-        this.Caption[i] = "file" + i;
+        this.Caption[i] = "فایل" + i;
       //Add DATA TO BE SENT
       formData.append(
         this.Caption[i],
@@ -217,7 +217,7 @@ export class AngularFileUploaderComponent implements OnInit, OnChanges {
           this.uploadBtn = false;
           this.uploadMsg = true;
           this.afterUpload = true;
-          this.uploadMsgText = "Upload Failed !";
+          this.uploadMsgText = "خطا در بارگزاری !";
           this.uploadMsgClass = "text-danger lead";
           //console.log(this.uploadMsgText);
           //console.log(evnt);
@@ -242,7 +242,7 @@ export class AngularFileUploaderComponent implements OnInit, OnChanges {
       this.uploadMsg = true;
       this.afterUpload = true;
       if (!isError) {
-        this.uploadMsgText = "Successfully Uploaded !";
+        this.uploadMsgText = "با موفقیت بارگزاری شد !";
         this.uploadMsgClass = "text-success lead";
         //console.log(this.uploadMsgText + " " + this.selectedFiles.length + " file");
       }

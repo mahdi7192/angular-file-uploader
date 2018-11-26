@@ -11,12 +11,12 @@
     </div>
     <!-- Drag n Drop theme Ends -->
 
-    <label for="sel{{id}}" class="btn btn-primary btn-sm afu-select-btn" *ngIf="!hideSelectBtn">Select File<span *ngIf="multiple">s</span></label>
-    <input type="file" id="sel{{id}}" style="display: none" *ngIf="!hideSelectBtn" (change)="onChange($event)" title="Select file"
+    <label for="sel{{id}}" class="btn btn-primary btn-sm afu-select-btn" *ngIf="!hideSelectBtn">انتخاب فایل<span *ngIf="multiple"> ها </span></label>
+    <input type="file" id="sel{{id}}" style="display: none" *ngIf="!hideSelectBtn" (change)="onChange($event)" title="انتخاب فایل"
         name="files[]" [accept]=formatsAllowed [attr.multiple]="multiple ? '' : null" />
-    <button class="btn btn-info btn-sm resetBtn afu-reset-btn" (click)="resetFileUpload()" *ngIf="!hideResetBtn">Reset</button>
+    <button class="btn btn-info btn-sm resetBtn afu-reset-btn" (click)="resetFileUpload()" *ngIf="!hideResetBtn">حذف همه</button>
     <br *ngIf="!hideSelectBtn">
-    <p class="constraints-info afu-constraints-info">({{formatsAllowed}}) Size limit- {{(convertSize(maxSize *1024000))}}</p>
+    <p class="constraints-info afu-constraints-info">({{formatsAllowed}}) محدودیت فایل - {{(convertSize(maxSize *1024000))}}</p>
     <!--Selected file list-->
     <div class="row afu-valid-file" *ngFor="let sf of selectedFiles;let i=index" >
         <p class="col-xs-3 textOverflow"><span class="text-primary">{{sf.name}}</span></p>
